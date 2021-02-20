@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
+    <h1>Список игроков футбольной команды</h1>
+    <div style="margin: 0 auto; width: 30%">
+        <form action="" method="GET" class="input-group mb-3">
+            <input name="search" type="text" class="form-control" placeholder="Найти" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Поиск</button>
+        </form>
+    </div>
+    {{players.error}}
+    {% for player in players %}
+    <div><a href="{{player.get_absolute_url}}"> {{player.name }} {{ player.surname }}</a></div>
+    {% endfor %}
+</div>
+{% endblock %}
